@@ -1,0 +1,89 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0.2",
+        "awcodes/filament-badgeable-column": "^1.1",
+        "awcodes/filament-curator": "^1.1",
+        "awcodes/filament-quick-create": "^1.2",
+        "bezhansalleh/filament-language-switch": "^1.0",
+        "bezhansalleh/filament-shield": "^2.3",
+        "filament/filament": "^2.0",
+        "filament/notifications": "^2.0",
+        "filament/spatie-laravel-media-library-plugin": "^2.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "humaidem/filament-map-picker": "^0.1.3",
+        "konnco/filament-safely-delete": "^0.3.1",
+        "laravel/framework": "^9.19",
+        "laravel/sanctum": "^3.0",
+        "laravel/scout": "^9.8",
+        "laravel/tinker": "^2.7",
+        "marjose123/filament-lockscreen": "^1.1",
+        "phpsa/filament-authentication": "^2.3",
+        "savannabits/filament-signature-pad": "^1.0",
+        "stephenjude/filament-blog": "^0.1.6",
+        "stijnvanouplines/blade-country-flags": "^1.0",
+        "uccellolabs/filament-theme-color": "^1.0",
+        "webbingbrasil/filament-advancedfilter": "^1.1",
+        "yajra/laravel-oci8": "9",
+        "yepsua/filament-range-field": "^0.3.1",
+        "yoeunes/toastr": "^2.1",
+        "z3d0x/filament-logger": "^0.4.2"
+    },
+    "require-dev": {
+        "doctrine/dbal": "^3.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.1",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan filament:upgrade"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
